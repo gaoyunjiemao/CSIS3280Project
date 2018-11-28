@@ -5,6 +5,12 @@
     <title>Recipe Manager Login</title>
   </head>
   <body>
-    <h1>Test text</h1>
+    <form class="" action="" method="post">
+      <input type="text" name="usernameText" placeholder="Username">
+      <input type="password" name="passwordText" placeholder="Password">
+      <button type="submit" name="signInButton">Sign In</button>
+      <a href="#">Register</a>
+      <a href="#">Forgot Password?</a>
+    </form>
   </body>
 </html>
