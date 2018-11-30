@@ -60,17 +60,6 @@
 	}
 
 	print   "</tr></table></center>";
-
-
-
-
-
-
-
-		//print "<pre>";
-		//print $authorID;
-		//print_r($recipeAuthor);
-		//print "</pre>";
 	?>
   </body>
 </html>
