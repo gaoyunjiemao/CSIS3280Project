@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -14,6 +15,10 @@
     <div class="row">
   	<?php
 	require "recipemanagementdb_connect.php";
+	    
+	if(isset($_SESSION['AuthorName'])){
+		print "Welcome!".$_SESSION['AuthorName']."!";
+	}
 
 	global $dbConn;
 	$recipeName = "SELECT * FROM recipe";
