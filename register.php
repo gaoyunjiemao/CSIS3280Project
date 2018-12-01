@@ -17,26 +17,30 @@
 			<div class="card">
 				<form class="col s12" action="" method="post">
 					<div class="card-content">
-						<div class="row ">
+						<div class=" ">
 							<div class="input-field col s12 ">
+								<i class="material-icons prefix">account_circle</i>
 								<input id="usernameText" type="text" name="usernameText" class="validate" required>
-								<label for="usernameText">Username</label>
+								<label for="usernameText">Name</label>
 							</div>
 						</div>
-						<div class="row">
+						<div class="">
 							<div class="input-field col s12 ">
+								<i class="material-icons prefix">email</i>
 								<input id="emailText" type="email" name="emailText" class="validate" required>
 								<label for="password">Email</label>
 							</div>
 						</div>
-						<div class="row">
+						<div class="">
 							<div class="input-field col s12 ">
+								<i class="material-icons prefix">lock</i>
 								<input id="password" type="password" name="password" class="validate" required>
 								<label for="password">Password</label>
 							</div>
 						</div>
-						<div class="row">
+						<div class="">
 							<div class="input-field col s12 ">
+								<i class="material-icons prefix">lock</i>
 								<input id="password2" type="password" name="password2" class="validate" required>
 								<label for="password2">Confirm Password</label>
 							</div>

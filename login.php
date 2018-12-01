@@ -19,14 +19,16 @@
       <div class="card">
         <form class="col s12" action="" method="post">
           <div class="card-content">
-            <div class="row ">
+            <div class="">
               <div class="input-field col s12 ">
+								<i class="material-icons prefix">email</i>
                 <input id="email" type="email" name="email" class="validate" required>
                 <label for="Email">Email</label>
               </div>
             </div>
-            <div class="row">
+            <div class="">
               <div class="input-field col s12 ">
+								<i class="material-icons prefix">lock</i>
                 <input id="password" type="password" name="password" class="validate" required>
                 <label for="password">Password</label>
               </div>
