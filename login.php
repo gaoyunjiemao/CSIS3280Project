@@ -21,7 +21,7 @@
           <div class="card-content">
             <div class="row ">
               <div class="input-field col s12 ">
-                <input id="email" type="text" name="email" class="validate" required>
+                <input id="email" type="email" name="email" class="validate" required>
                 <label for="Email">Email</label>
               </div>
             </div>
@@ -35,11 +35,10 @@
               <button class="waves-effect waves-light btn col s5 right" type="submit" name="submit">Sign In</button>
             </div>
             <div class="row">
-              <a class="waves-effect waves-light btn col s5 right" href="#">Create Account</a>
+              <a class="waves-effect waves-light btn col s5 right" href="register.php">Create Account</a>
               <a class="waves-effect waves-light btn col s5 right" href="#">Forgot Password?</a>
             </div>
           </div>
-
           <?php
           if(isset($_POST['submit'])){
           	global $dbConn;
@@ -62,13 +61,13 @@
     						header('Location: home_displayRecipe.php');
     					}
     					else{
-    						Print "<div class='error card-content'>Wrong password, please try again</div>";
+    						print "<div class='error card-content'>Wrong password, please try again</div>";
     					}
     				}
     				else{
     					print "<div class='error card-content'>You haven't set up your account or password before</div>
                     <div class='card-action'>
-                      <a href='#'>Click Here to sign Up</a>
+                      <a href='register.php'>Click Here to sign Up</a>
                       </div>";
     				}
     			}

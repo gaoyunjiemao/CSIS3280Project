@@ -6,14 +6,45 @@
   <head>
     <meta charset="utf-8">
     <title>Create your Recipe Manager Account</title>
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/materialize.css">
+		<link rel="stylesheet" href="css/login.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto" >
   </head>
   <body>
-    <form class="" action="" method="post">
-      <input type="text" name="usernameText" placeholder="Username">
-      <input type="email" name="emailText" placeholder="Email">
-      <input type="password" name="password" placeholder="Password">
-      <input type="password" name="password2" placeholder="Confirm Password" >
-      <button type="submit" name="submit">Register</button>
+		<div class="container">
+			<div class="card">
+				<form class="col s12" action="" method="post">
+					<div class="card-content">
+						<div class="row ">
+							<div class="input-field col s12 ">
+								<input id="usernameText" type="text" name="usernameText" class="validate" required>
+								<label for="usernameText">Username</label>
+							</div>
+						</div>
+						<div class="row">
+							<div class="input-field col s12 ">
+								<input id="emailText" type="email" name="emailText" class="validate" required>
+								<label for="password">Email</label>
+							</div>
+						</div>
+						<div class="row">
+							<div class="input-field col s12 ">
+								<input id="password" type="password" name="password" class="validate" required>
+								<label for="password">Password</label>
+							</div>
+						</div>
+						<div class="row">
+							<div class="input-field col s12 ">
+								<input id="password2" type="password" name="password2" class="validate" required>
+								<label for="password2">Confirm Password</label>
+							</div>
+						</div>
+						<div class="row">
+							<button class="waves-effect waves-light btn col s5 right" type="submit" name="submit">Register</button>
+						</div>
+					</div>
       <?php
 		if(isset($_POST['submit'])){
 			global $dbConn;
@@ -21,11 +52,11 @@
 	  		$userEmail = $_POST['emailText'];
 	  		$userPassword = $_POST['password'];
 	  		$userPasswordCon = $_POST['password2'];
-	  	
+
 	  		if($userName!=null&&$userEmail!=null&&$userPassword!=null&&$userPasswordCon!=null){
 	  			if($userPassword == $userPasswordCon){
 					$InsertUserQuery = "INSERT INTO author (AuthorName,AuthorEmail,AuthorPassword) VALUES ('$userName','$userEmail','$userPassword')";
-					try{					 	
+					try{
 						$checkInsertUserName = $dbConn->prepare($InsertUserQuery);
 						$checkInsertUserName->execute();
 						print "Good to go! Please sign in!";
@@ -36,24 +67,14 @@
 					}
 				}
 				else{
-					print "Please confirm your password";
+					print "<div class='error card-content'>Please confirm your password</div>";
 				}
 			}
 			else{
-				print "Please enter your name, email address and password, thanks!";
-			}	  	
+				print "<div class='error card-content'>Please enter your name, email address and password, thanks!</div>";
+			}
 	  	}
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-           /*
+     /*
         DROP TABLE IF EXISTS AUTHOR;
 		CREATE TABLE IF NOT EXISTS AUTHOR(
    		AuthorID   INTEGER  NOT NULL PRIMARY KEY AUTO_INCREMENT
@@ -67,11 +88,8 @@
 	INSERT INTO AUTHOR(AuthorID,AuthorName,AuthorEmail,AuthorPassword) VALUES (203,'Andrea Cushman','andrea@gmail.com','andrea1234');
 	INSERT INTO AUTHOR(AuthorID,AuthorName,AuthorEmail,AuthorPassword) VALUES (204,'VBRAUER671','vbrauer671@gmail.com','vbrauer671');
 	INSERT INTO AUTHOR(AuthorID,AuthorName,AuthorEmail,AuthorPassword) VALUES (205,'Sean S.','sean@gmail.com','sean1234');*/
-      
-      
-      
-      
       ?>
     </form>
+		<script src="js/materialize.js"></script>
   </body>
 </html>
