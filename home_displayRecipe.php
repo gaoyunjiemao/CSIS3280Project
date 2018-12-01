@@ -17,7 +17,7 @@
 	require "recipemanagementdb_connect.php";
 	    
 	if(isset($_SESSION['AuthorName'])){
-		print "Welcome!".$_SESSION['AuthorName']."!";
+		print "<h4 align='center' style='color:orange;'>Welcome back, ".$_SESSION['AuthorName']."!</h4>";
 	}
 
 	global $dbConn;
