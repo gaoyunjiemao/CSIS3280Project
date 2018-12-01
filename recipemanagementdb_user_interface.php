@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -27,8 +28,12 @@
 		$desc = $_POST['prepTime'];
 		$prepTime = $_POST['cookTime'];
 		$cookTime = $_POST['desc'];
-		$insertIntoRecipe = $dbConn->prepare("INSERT INTO RECIPE(RecipeName,RecipeDesc,AuthorID,PrepTime,CookTime) VALUES ('$recipeName','$desc',201,'$prepTime','$cookTime')");
-		$insertIntoRecipe->execute();
+		if(isset($_SESSION['AuthorID'])){
+			print "Welcome!".$_SESSION['AuthorName']."!";
+			$insertIntoRecipe = $dbConn->prepare("INSERT INTO RECIPE(RecipeName,RecipeDesc,AuthorID,PrepTime,CookTime) VALUES ('$recipeName','$desc','".$_SESSION['AuthorID']."','$prepTime','$cookTime')");
+			
+			$insertIntoRecipe->execute();
+		}
 	}
 	?>
 	</body>

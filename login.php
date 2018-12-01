@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <?php
@@ -9,69 +10,50 @@
   </head>
   <body>
     <form class="" action="" method="post">
-      <input type="text" name="usernameText" placeholder="Username">
+      <input type="text" name="email" placeholder="Email">
       <input type="password" name="password" placeholder="Password">
       <button type="submit" name="submit">Sign In</button>
+      <p><a href="#">Create Account</a>
+     <a href="#">Forgot Password?</a></p>
       <?php
       if(isset($_POST['submit'])){
       	global $dbConn;
-	  	$userName = $_POST['usernameText'];
+	  	$email = $_POST['email'];
 	  	$userPassword = $_POST['password'];
 	  	
-	  	$UserNameQuery = "SELECT AuthorName FROM author WHERE AuthorName = '$userName'";
-	  	$UserPasswordQuery = "SELECT AuthorPassword FROM author WHERE AuthorName = '$userName'";
+	  	$UserQuery = "SELECT AuthorID,AuthorName,AuthorEmail,AuthorPassword FROM author WHERE AuthorEmail = '$email'";
 	  	try{
-			$checkUserName = $dbConn->prepare($UserNameQuery);
-			$checkUserPassword = $dbConn->prepare($UserPasswordQuery); 	
-			$checkUserName->execute();
-			$checkUserPassword->execute();
-			$resultUserName = $checkUserName->fetchall(PDO::FETCH_ASSOC);
-			$resultUserPassword = $checkUserPassword->fetchall(PDO::FETCH_ASSOC);
-			$checkUserName -> CloseCursor();
-			$checkUserPassword -> CloseCursor();
+			$checkUser = $dbConn->prepare($UserQuery); 	
+			$checkUser->execute();
+			$resultUser = $checkUser->fetchall(PDO::FETCH_ASSOC);
+			$checkUser -> CloseCursor();
 			
-			/*print "<pre>";
-			print_r($resultUserName);
-			print "</pre>";
-			print "<pre>";
-			print_r($resultUserPassword);
-			print "</pre>";*/
-			
-			
-			if($userName!=null && $userPassword!=null){
-				if($resultUserName!=null&&$resultUserPassword!=null){
-					if($resultUserPassword[0]['AuthorPassword']==$userPassword){
+			if($email!=null && $userPassword!=null){
+				if($resultUser!=null){
+					if($resultUser[0]['AuthorPassword']==$userPassword){
+						$_SESSION['AuthorName']=$resultUser[0]['AuthorName'];
+						$_SESSION['AuthorID']=$resultUser[0]['AuthorID'];
 						print "Good to go";
-						header('Location: home_displayRecipe.php');
-						
+						header('Location: home_displayRecipe.php');	
 					}
 					else{
-						Print "Password Wrong~";
+						Print "<p>Wrong password, please enter again</p>";
 					}
 				}
 				else{
-					print "You haven't set up your account or password before, <a href='#'> click here </a> to sing up!";
+					print "<p>You haven't set up your account or password before, <a href='#'> click here </a> to sign up!</p>";
 				}
 			}
 			else{
-				print "Please enter your account and password! Thanks!";
+				print "<p>Please enter your account and password! Thanks!</p>";
 			}			
 		}
 		catch(PDOExcpetion $ex){
-			print "Failed";
+			print "<p>Failed</p>";
+			print $ex->getMessage();
 		}
 	  }
-      
-      
-      
- 
-      
       ?>
-      
-      
-      
-      <a href="#">Create Account</a>
-      <a href="#">Forgot Password?</a>
     </form>
   </body>
 </html>
