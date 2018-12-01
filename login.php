@@ -34,11 +34,11 @@
               </div>
             </div>
             <div class="row">
-              <button class="waves-effect waves-light btn col s5 right" type="submit" name="submit">Sign In</button>
+              <button class="waves-effect waves-light btn blue col s5 right" type="submit" name="submit">Sign In</button>
             </div>
             <div class="row">
-              <a class="waves-effect waves-light btn col s5 right" href="register.php">Create Account</a>
-              <a class="waves-effect waves-light btn col s5 right" href="#">Forgot Password?</a>
+              <a class="waves-effect waves-light btn red col s5 right" href="register.php">Create Account</a>
+              <a class="waves-effect waves-light btn red col s5 right" href="#">Forgot Password?</a>
             </div>
           </div>
           <?php

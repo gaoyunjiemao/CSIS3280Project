@@ -46,7 +46,8 @@
 							</div>
 						</div>
 						<div class="row">
-							<button class="waves-effect waves-light btn col s5 right" type="submit" name="submit">Register</button>
+							<button class="waves-effect waves-light btn blue col s5 right" type="submit" name="submit">Register</button>
+							<a class="waves-effect waves-light btn red col s5 right" href="login.php">Login</a>
 						</div>
 					</div>
       <?php
