@@ -68,7 +68,7 @@
     print '<div class="col s4">
 
 
-    <div class="card medium sticky-action">
+    <div class="card medium">
     <div class="card-image waves-effect waves-block waves-light">
       <img class="activator" src="images/recipes/'.$recipeTable[$i]['RecipeID'].'.jpg">
     </div>
@@ -82,10 +82,9 @@
       <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span>
       <span class="card-title grey-text text-darken-4 card-content">'.$recipeTable[$i]['RecipeName'].'</span>
       <p class="card-content">'.$recipeTable[$i]['RecipeDesc'].'</p>
-      <p class="card-content">
-      Author : '.$recipeAuthor['0']['AuthorName'].
-      '<br />PrepTime : '.$recipeTable[$i]['PrepTime'].
-      '<br />CookTime : '.$recipeTable[$i]['CookTime'].'</p>
+      <div class="chip"><i class="close material-icons">access_time</i>'.$recipeTable[$i]['PrepTime'].'</div>
+      <div class="chip"><i class="close material-icons">access_alarms</i>'.$recipeTable[$i]['CookTime'].'</div><br />
+      <div class="chip">'.$recipeAuthor['0']['AuthorName'].'</div>
     </div></div>
   </div>';
 	}
