@@ -11,3 +11,7 @@
   min-width: : 450px;
   width: 30%;
 }
+
+.error{
+  color: red;
+}

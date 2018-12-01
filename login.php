@@ -21,13 +21,13 @@
           <div class="card-content">
             <div class="row ">
               <div class="input-field col s12 ">
-                <input id="email" type="text" name="email" class="validate">
+                <input id="email" type="text" name="email" class="validate" required>
                 <label for="Email">Email</label>
               </div>
             </div>
             <div class="row">
               <div class="input-field col s12 ">
-                <input id="password" type="text" name="password" class="validate">
+                <input id="password" type="password" name="password" class="validate" required>
                 <label for="password">Password</label>
               </div>
             </div>
@@ -62,15 +62,18 @@
     						header('Location: home_displayRecipe.php');
     					}
     					else{
-    						Print "<p>Wrong password, please enter again</p>";
+    						Print "<div class='error card-content'>Wrong password, please try again</div>";
     					}
     				}
     				else{
-    					print "<p>You haven't set up your account or password before, <a href='#'> click here </a> to sign up!</p>";
+    					print "<div class='error card-content'>You haven't set up your account or password before</div>
+                    <div class='card-action'>
+                      <a href='#'>Click Here to sign Up</a>
+                      </div>";
     				}
     			}
     			else{
-    				print "<p>Please enter your account and password! Thanks!</p>";
+    				print "<div class='error card-content'>Please enter your account and password! Thanks!</div>";
     			}
     		}
     		catch(PDOExcpetion $ex){
