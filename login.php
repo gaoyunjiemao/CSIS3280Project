@@ -10,15 +10,18 @@
     <title>Recipe Manager</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/materialize.css">
-    <link rel="stylesheet" href="css/login.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto" >
+		<link rel="stylesheet" href="css/login.css">
   </head>
   <body>
     <div class="container">
-      <div class="card">
+      <div class="card" style="min-width : 400px; margin-top: 25%;">
         <form class="col s12" action="" method="post">
           <div class="card-content">
+						<div class="logo">
+							<img src="images/logo/fallrecipes.png" alt="Website Logo">
+						</div>
             <div class="">
               <div class="input-field col s12 ">
 								<i class="material-icons prefix">email</i>
