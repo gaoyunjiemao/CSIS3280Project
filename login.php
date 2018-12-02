@@ -12,25 +12,27 @@
     <link rel="stylesheet" href="css/materialize.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto" >
-		<link rel="stylesheet" href="css/login.css">
+		<link rel="stylesheet" href="css/login_register.css">
   </head>
   <body>
     <div class="container">
-      <div class="card" style="min-width : 400px; margin-top: 25%;">
-        <form class="col s12" action="" method="post">
+      <div class="card" >
+        <form class="" action="" method="post">
           <div class="card-content">
-						<div class="logo">
-							<img src="images/logo/fallrecipes.png" alt="Website Logo">
+						<div class="row">
+							<center>
+								<img src="images/logo/fallrecipes.png" alt="Website Logo">
+							</center>
 						</div>
             <div class="">
-              <div class="input-field col s12 ">
+              <div class="input-field">
 								<i class="material-icons prefix">email</i>
                 <input id="email" type="email" name="email" class="validate" required>
                 <label for="Email">Email</label>
               </div>
             </div>
             <div class="">
-              <div class="input-field col s12 ">
+              <div class="input-field">
 								<i class="material-icons prefix">lock</i>
                 <input id="password" type="password" name="password" class="validate" required>
                 <label for="password">Password</label>
@@ -41,6 +43,7 @@
             </div>
             <div class="row">
               <a class="waves-effect waves-light btn red col s5 right" href="register.php">Create Account</a>
+							<p class="col s1 right"></p>
               <a class="waves-effect waves-light btn red col s5 right" href="forget.php">Forgot Password?</a>
             </div>
           </div>
@@ -63,7 +66,7 @@
     						$_SESSION['AuthorName']=$resultUser[0]['AuthorName'];
     						$_SESSION['AuthorID']=$resultUser[0]['AuthorID'];
     						print "Good to go";
-    						header('Location: home_displayRecipe.php');
+    						header('Location: index.php');
     					}
     					else{
     						print "<div class='error card-content'>Wrong password, please try again</div>";

@@ -1,3 +1,16 @@
 html{
 	font-family: 'Roboto', sans-serif;
 }
+
+.brand-logo, .logo{
+	height: 64px;
+	margin-left: 30px;
+}
+
+.nav-text{
+	margin-right: 30px;
+}
+
+.footer{
+	position: sticky;
+}

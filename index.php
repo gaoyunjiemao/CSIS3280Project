@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/reset.css">
 		<link rel="stylesheet" href="css/materialize.css">
-		<!-- <link rel="stylesheet" href="css/login.css"> -->
+    <link rel="stylesheet" href="css/master.css" />
 		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto" >
     <title>Home</title>
@@ -15,10 +15,8 @@
     <div class="row">
   	<?php
 	require "recipemanagementdb_connect.php";
-	    
-	if(isset($_SESSION['AuthorName'])){
-		print "<h4 align='center' style='color:orange;'>Welcome back, ".$_SESSION['AuthorName']."!</h4>";
-	}
+  include "header.php";
+  echo '<div class="row">';
 
 	global $dbConn;
 	$recipeName = "SELECT * FROM recipe";
@@ -70,30 +68,30 @@
 		// 		<td>".$recipeTable[$i]['CookTime']."</td>
 		// 		<td>".$recipeAuthor['0']['AuthorName']."</td></tr>";
 
-    print '<div class="col s4">
-
-
-    <div class="card medium">
-    <div class="card-image waves-effect waves-block waves-light">
-      <img class="activator" src="images/recipes/'.$recipeTable[$i]['RecipeID'].'.jpg">
-    </div>
-    <div class="card-content">
-      <span class="card-title activator grey-text text-darken-4">'.$recipeTable[$i]['RecipeName'].'<i class="material-icons right">more_vert</i></span>
-      <div class="card-action">
-      <p><a href="displayRecipePage.php?id='.$recipeTable[$i]['RecipeID'].'">View Recipe</a></p>
-      </div>
-    </div>
-    <div class="card-reveal">
-      <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span>
-      <span class="card-title grey-text text-darken-4 card-content">'.$recipeTable[$i]['RecipeName'].'</span>
-      <p class="card-content">'.$recipeTable[$i]['RecipeDesc'].'</p>
-      <div class="chip"><i class="close material-icons">access_time</i>'.$recipeTable[$i]['PrepTime'].'</div>
-      <div class="chip"><i class="close material-icons">access_alarms</i>'.$recipeTable[$i]['CookTime'].'</div><br />
-      <div class="chip">'.$recipeAuthor['0']['AuthorName'].'</div>
-    </div></div>
-  </div>';
+    print '<div class="main col s4">
+            <div class="card medium hoverable">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator" src="images/recipes/'.$recipeTable[$i]['RecipeID'].'.jpg">
+              </div>
+              <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4">'.$recipeTable[$i]['RecipeName'].'<i class="material-icons right">more_vert</i></span>
+                <div class="card-action">
+                <p><a href="displayRecipePage.php?id='.$recipeTable[$i]['RecipeID'].'">View Recipe</a></p>
+                </div>
+              </div>
+              <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span>
+                <span class="card-title grey-text text-darken-4 card-content">'.$recipeTable[$i]['RecipeName'].'</span>
+                <p class="card-content">'.$recipeTable[$i]['RecipeDesc'].'</p>
+                <div class="chip"><i class="close material-icons">access_time</i>'.$recipeTable[$i]['PrepTime'].'</div>
+                <div class="chip"><i class="close material-icons">access_alarms</i>'.$recipeTable[$i]['CookTime'].'</div><br />
+                <div class="chip">'.$recipeAuthor['0']['AuthorName'].'</div>
+              </div>
+            </div>
+          </div>';
 	}
-
+  echo "</div>";
+  include "footer.php";
 	// print   "</tr></table></center>";
 
 	?>
