@@ -16,8 +16,9 @@
 	$recipeID = $_GET["id"];
 			
 	global $dbConn;
-	$recipeQuery = "SELECT * FROM recipe WHERE RecipeID = '$recipeID'";	
 	
+	//from Recipe table
+	$recipeQuery = "SELECT * FROM recipe WHERE RecipeID = '$recipeID'";	
 	try{
 		$runRecipeQuery=$dbConn->prepare($recipeQuery);
 		$runRecipeQuery->execute();
@@ -34,9 +35,9 @@
 	//print "</pre>";
 
 //==============================================================================
+	//from Author table
 	$authorID = $resultRecipe[0]['AuthorID'];
-	$authorQuery = "SELECT * FROM author WHERE AuthorID ='$authorID'";	
-	
+	$authorQuery = "SELECT * FROM author WHERE AuthorID ='$authorID'";		
 	try{
 		$runAuthorQuery=$dbConn->prepare($authorQuery);
 		$runAuthorQuery->execute();
@@ -53,8 +54,8 @@
 	//print "</pre>";
 
 //==============================================================================
-	$stepQuery = "SELECT * FROM step WHERE RecipeID ='$recipeID'";	
-	
+    //from Step table
+	$stepQuery = "SELECT * FROM step WHERE RecipeID ='$recipeID'";		
 	try{
 		$runStepQuery=$dbConn->prepare($stepQuery);
 		$runStepQuery->execute();
@@ -71,6 +72,10 @@
 	//print "</pre>";
 	
 //==============================================================================
+
+	//from step_ingredient and ingredient table
+	//depence on different stepID we can find all the ingredientIDs, 
+	//then we use each ingredientIDs to find ingredientName	
 	$IngArray = array();
 	$StepArray = array();
 	$countStep = count($resultStep);
