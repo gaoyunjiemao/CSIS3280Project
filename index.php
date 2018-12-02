@@ -4,10 +4,10 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto" >
 		<link rel="stylesheet" href="css/materialize.css">
     <link rel="stylesheet" href="css/master.css" />
-		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto" >
     <title>Home</title>
   </head>
   <body>

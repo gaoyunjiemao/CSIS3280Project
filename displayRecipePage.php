@@ -1,131 +1,162 @@
 <!DOCTYPE html>
-<html>
-<?php
-	require "recipemanagementdb_connect.php";
-?>
+<html lang="en" dir="ltr">
 	<head>
 		<meta charset="utf-8">
 		<title></title>
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto" >
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+		<link rel="stylesheet" href="css/materialize.css">
+    <link rel="stylesheet" href="css/master.css" />
 	</head>
 	<body>
-	
+		<div class="container">
+				<?php
+					require "recipemanagementdb_connect.php";
+					include "header.php";
+					$recipeID = $_GET["id"];
 
-	<a href="home_displayRecipe.php">back to home</a>	
-	
-	<?php	
-	$recipeID = $_GET["id"];
-			
-	global $dbConn;
-	
-	//from Recipe table
-	$recipeQuery = "SELECT * FROM recipe WHERE RecipeID = '$recipeID'";	
-	try{
-		$runRecipeQuery=$dbConn->prepare($recipeQuery);
-		$runRecipeQuery->execute();
-		$resultRecipe=$runRecipeQuery->fetchall(PDO::FETCH_ASSOC);
-		$runRecipeQuery -> CloseCursor();
-	}
-	catch(PDOException $ex){
-    	print "<p>Failed</p>";
-    	print $ex->getMessage();
-	}		
-	
-	//print "<pre>";
-	//print_r($resultRecipe);
-	//print "</pre>";
+					global $dbConn;
 
-//==============================================================================
-	//from Author table
-	$authorID = $resultRecipe[0]['AuthorID'];
-	$authorQuery = "SELECT * FROM author WHERE AuthorID ='$authorID'";		
-	try{
-		$runAuthorQuery=$dbConn->prepare($authorQuery);
-		$runAuthorQuery->execute();
-		$resultAuthor=$runAuthorQuery->fetchall(PDO::FETCH_ASSOC);
-		$runAuthorQuery -> CloseCursor();
-	}
-	catch(PDOException $ex){
-    	print "<p>Failed</p>";
-    	print $ex->getMessage();
-	}		
-	
-	//print "<pre>";
-	//print_r($resultAuthor);
-	//print "</pre>";
+					//from Recipe table
+					$recipeQuery = "SELECT * FROM recipe WHERE RecipeID = '$recipeID'";
+					try{
+						$runRecipeQuery=$dbConn->prepare($recipeQuery);
+						$runRecipeQuery->execute();
+						$resultRecipe=$runRecipeQuery->fetchall(PDO::FETCH_ASSOC);
+						$runRecipeQuery -> CloseCursor();
+					}
+					catch(PDOException $ex){
+							print "<p>Failed</p>";
+							print $ex->getMessage();
+					}
 
-//==============================================================================
-    //from Step table
-	$stepQuery = "SELECT * FROM step WHERE RecipeID ='$recipeID'";		
-	try{
-		$runStepQuery=$dbConn->prepare($stepQuery);
-		$runStepQuery->execute();
-		$resultStep=$runStepQuery->fetchall(PDO::FETCH_ASSOC);
-		$runStepQuery -> CloseCursor();
-	}
-	catch(PDOException $ex){
-    	print "<p>Failed</p>";
-    	print $ex->getMessage();
-	}		
-	
-	//print "<pre>";
-	//print_r($resultStep);
-	//print "</pre>";
-	
-//==============================================================================
+					//print "<pre>";
+					//print_r($resultRecipe);
+					//print "</pre>";
 
-	//from step_ingredient and ingredient table
-	//depence on different stepID we can find all the ingredientIDs, 
-	//then we use each ingredientIDs to find ingredientName	
-	$IngArray = array();
-	$StepArray = array();
-	$countStep = count($resultStep);
-	for($i=0;$i<$countStep;$i++){
-		$stepID = $resultStep[$i]['StepID'];
-		$step_ingQuery = "SELECT * FROM step_ingredient WHERE stepID ='$stepID'";	
-	
-		try{
-			$runStep_IngQuery=$dbConn->prepare($step_ingQuery);
-			$runStep_IngQuery->execute();
-			$resultStep_Ing=$runStep_IngQuery->fetchall(PDO::FETCH_ASSOC);
-			$runStep_IngQuery -> CloseCursor();
-		}
-		catch(PDOException $ex){
-    		print "<p>Failed</p>";
-    		print $ex->getMessage();
-		}			
-		array_push($StepArray,$resultStep_Ing);
-		
-		$countStep_Ing = count($resultStep_Ing);		
-		for($j=0;$j<$countStep_Ing;$j++){
-			$ingID = $resultStep_Ing[$j]['IngredientID'];
-			if($ingID!=null){
-				$ingredientQuery = "SELECT * FROM ingredient WHERE IngredientID ='$ingID'";		
-				try{
-					$runIngredientQuery=$dbConn->prepare($ingredientQuery);
-					$runIngredientQuery->execute();
-					$resultIngredient=$runIngredientQuery->fetchall(PDO::FETCH_ASSOC);
-					$runIngredientQuery -> CloseCursor();
-				}
-				catch(PDOException $ex){
-    				print "<p>Failed</p>";
-    				print $ex->getMessage();
-				}		
-				array_push($IngArray,$resultIngredient[0]);				
-			}				
-		}				
-	}
-	
+				//==============================================================================
+					//from Author table
+					$authorID = $resultRecipe[0]['AuthorID'];
+					$authorQuery = "SELECT * FROM author WHERE AuthorID ='$authorID'";
+					try{
+						$runAuthorQuery=$dbConn->prepare($authorQuery);
+						$runAuthorQuery->execute();
+						$resultAuthor=$runAuthorQuery->fetchall(PDO::FETCH_ASSOC);
+						$runAuthorQuery -> CloseCursor();
+					}
+					catch(PDOException $ex){
+							print "<p>Failed</p>";
+							print $ex->getMessage();
+					}
+
+					//print "<pre>";
+					//print_r($resultAuthor);
+					//print "</pre>";
+
+				//==============================================================================
+						//from Step table
+					$stepQuery = "SELECT * FROM step WHERE RecipeID ='$recipeID'";
+					try{
+						$runStepQuery=$dbConn->prepare($stepQuery);
+						$runStepQuery->execute();
+						$resultStep=$runStepQuery->fetchall(PDO::FETCH_ASSOC);
+						$runStepQuery -> CloseCursor();
+					}
+					catch(PDOException $ex){
+							print "<p>Failed</p>";
+							print $ex->getMessage();
+					}
+
+					//print "<pre>";
+					//print_r($resultStep);
+					//print "</pre>";
+
+				//==============================================================================
+
+					//from step_ingredient and ingredient table
+					//depence on different stepID we can find all the ingredientIDs,
+					//then we use each ingredientIDs to find ingredientName
+					$IngArray = array();
+					$StepArray = array();
+					$countStep = count($resultStep);
+					for($i=0;$i<$countStep;$i++){
+						$stepID = $resultStep[$i]['StepID'];
+						$step_ingQuery = "SELECT * FROM step_ingredient WHERE stepID ='$stepID'";
+
+						try{
+							$runStep_IngQuery=$dbConn->prepare($step_ingQuery);
+							$runStep_IngQuery->execute();
+							$resultStep_Ing=$runStep_IngQuery->fetchall(PDO::FETCH_ASSOC);
+							$runStep_IngQuery -> CloseCursor();
+						}
+						catch(PDOException $ex){
+								print "<p>Failed</p>";
+								print $ex->getMessage();
+						}
+						array_push($StepArray,$resultStep_Ing);
+
+						$countStep_Ing = count($resultStep_Ing);
+						for($j=0;$j<$countStep_Ing;$j++){
+							$ingID = $resultStep_Ing[$j]['IngredientID'];
+							if($ingID!=null){
+								$ingredientQuery = "SELECT * FROM ingredient WHERE IngredientID ='$ingID'";
+								try{
+									$runIngredientQuery=$dbConn->prepare($ingredientQuery);
+									$runIngredientQuery->execute();
+									$resultIngredient=$runIngredientQuery->fetchall(PDO::FETCH_ASSOC);
+									$runIngredientQuery -> CloseCursor();
+								}
+								catch(PDOException $ex){
+										print "<p>Failed</p>";
+										print $ex->getMessage();
+								}
+								array_push($IngArray,$resultIngredient[0]);
+							}
+						}
+					}
+
+					echo '<div class="row">
+									<div class="card col s4">
+										<div class="card-image">
+										<img src="images/recipes/'.$recipeID.'.jpg" alt="Recipe Image"/>
+										</div>
+										<div class="card-content">
+											<div class="card-title">'.$resultRecipe[0]['RecipeName'].'</div>
+											<p>'.$resultRecipe[0]['RecipeDesc'].'</p>
+										</div>
+									</div>
+									<div class="col s8">
+										<div class="card">
+											<div class="card-content">
+												<div class="chip">Preptime : '.$resultRecipe[0]['PrepTime'].'</div>
+												<div class="chip">Cooktime : '.$resultRecipe[0]['CookTime'].'</div>
+												<div class="chip right">Author : '.$resultAuthor[0]['AuthorName'].'</div>
+											</div>
+											
+											</div>
+										</div>
+									</div>
+								</div>';
+				?>
+			</div>
+	</body>
+</html>
+
+	<?php
+
+
 	//print "<pre>";
 	//print_r($StepArray);
 	//print "</pre>";
-	
+
 	//print "<pre>";
 	//print_r($IngArray);
 	//print "</pre>";
-	
-//==============================================================================	
-	
-	
+
+//==============================================================================
+
+
 	print "<table border=1>
 		<tr><th><p>RECIPE NAME</p></th></tr>
 		<tr><td><p align='center'>".$resultRecipe[0]['RecipeName']."</p></td></tr>
@@ -140,7 +171,7 @@
 		for($i=0;$i<$countStep;$i++){
 			$j=$i+1;
 			print "<tr><th><p>Step : $j</p></th></tr>
-			<tr><td><p align='center'>".$resultStep[$i]['StepDesc']."</p></td></tr>";			
+			<tr><td><p align='center'>".$resultStep[$i]['StepDesc']."</p></td></tr>";
 		}
 		print "<tr><th><p>---Ingredient---</p></th></tr>";
 		$countStep_ing = count($StepArray);
@@ -150,7 +181,7 @@
 			for($j=0;$j<$countStep_ingI;$j++){
 				$IngredientIDTmp=$StepArray[$i][$j]['IngredientID'];
 				if($IngredientIDTmp!=null){
-					print "<tr><th><p>Ingredient Name</p></th></tr>";					
+					print "<tr><th><p>Ingredient Name</p></th></tr>";
 					for($k=0;$k<$countIng;$k++){
 						if($IngArray[$k]['IngredientID']==$IngredientIDTmp){
 							print "<tr><td><p align='center'>".$IngArray[$k]['IngredientName']."</p></td></tr>";
@@ -162,14 +193,14 @@
 					<tr><td><p align='center'>".$StepArray[$i][$j]['AmtUnits']."</p></td></tr>";
 				}
 
-			}			
-		} 
-		
+			}
+		}
+
 	print "</table>";
-	
+
 	?>
-	
-	
+
+
 
 	</body>
 </html>

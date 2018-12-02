@@ -2,7 +2,7 @@
 <?php
   echo '<nav class="white card">
           <div class="nav-wrapper">
-            <a href="home.php" class="brand-logo">
+            <a href="index.php" class="brand-logo">
               <img class="logo" src="images/logo/fallrecipes.png" />
             </a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">';
