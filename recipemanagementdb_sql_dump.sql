@@ -12,13 +12,14 @@ CREATE TABLE IF NOT EXISTS AUTHOR(
   ,AuthorName VARCHAR(20) NOT NULL
   ,AuthorEmail VARCHAR(50) NOT NULL
   ,AuthorPassword VARCHAR(20) NOT NULL
+  ,AuthorSecurityPassword VARCHAR(20) NOT NULL
 );
-INSERT INTO AUTHOR(AuthorID,AuthorName,AuthorEmail,AuthorPassword) VALUES (200,'Alexis','alexis@gmail.com','alexis1234');
-INSERT INTO AUTHOR(AuthorID,AuthorName,AuthorEmail,AuthorPassword) VALUES (201,'Judy Diercks Oreilly','judy@gmail.com','judy1234');
-INSERT INTO AUTHOR(AuthorID,AuthorName,AuthorEmail,AuthorPassword) VALUES (202,'Soup Loving Nicole','soup@gmail.com','soup1234');
-INSERT INTO AUTHOR(AuthorID,AuthorName,AuthorEmail,AuthorPassword) VALUES (203,'Andrea Cushman','andrea@gmail.com','andrea1234');
-INSERT INTO AUTHOR(AuthorID,AuthorName,AuthorEmail,AuthorPassword) VALUES (204,'VBRAUER671','vbrauer671@gmail.com','vbrauer671');
-INSERT INTO AUTHOR(AuthorID,AuthorName,AuthorEmail,AuthorPassword) VALUES (205,'Sean S.','sean@gmail.com','sean1234');
+INSERT INTO AUTHOR(AuthorID,AuthorName,AuthorEmail,AuthorPassword,AuthorSecurityPassword) VALUES (200,'Alexis','alexis@gmail.com','alexis1234','0000');
+INSERT INTO AUTHOR(AuthorID,AuthorName,AuthorEmail,AuthorPassword,AuthorSecurityPassword) VALUES (201,'Judy Diercks Oreilly','judy@gmail.com','judy1234','0000');
+INSERT INTO AUTHOR(AuthorID,AuthorName,AuthorEmail,AuthorPassword,AuthorSecurityPassword) VALUES (202,'Soup Loving Nicole','soup@gmail.com','soup1234','0000');
+INSERT INTO AUTHOR(AuthorID,AuthorName,AuthorEmail,AuthorPassword,AuthorSecurityPassword) VALUES (203,'Andrea Cushman','andrea@gmail.com','andrea1234','0000');
+INSERT INTO AUTHOR(AuthorID,AuthorName,AuthorEmail,AuthorPassword,AuthorSecurityPassword) VALUES (204,'VBRAUER671','vbrauer671@gmail.com','vbrauer671','0000');
+INSERT INTO AUTHOR(AuthorID,AuthorName,AuthorEmail,AuthorPassword,AuthorSecurityPassword) VALUES (205,'Sean S.','sean@gmail.com','sean1234','0000');
 
 DROP TABLE IF EXISTS INGREDIENT;
 CREATE TABLE IF NOT EXISTS INGREDIENT(

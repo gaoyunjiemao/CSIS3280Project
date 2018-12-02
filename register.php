@@ -28,7 +28,7 @@
 							<div class="input-field col s12 ">
 								<i class="material-icons prefix">email</i>
 								<input id="emailText" type="email" name="emailText" class="validate" required>
-								<label for="password">Email</label>
+								<label for="emailText">Email</label>
 							</div>
 						</div>
 						<div class="">
@@ -45,6 +45,13 @@
 								<label for="password2">Confirm Password</label>
 							</div>
 						</div>
+						<div class="">
+							<div class="input-field col s12 ">
+								<i class="material-icons prefix">lock</i>
+								<input id="password3" type="password" name="password3" class="validate" required>
+								<label for="password3">Enter Another Security Password</label>
+							</div>
+						</div>
 						<div class="row">
 							<button class="waves-effect waves-light btn blue col s5 right" type="submit" name="submit">Register</button>
 							<a class="waves-effect waves-light btn red col s5 right" href="login.php">Login</a>
@@ -57,10 +64,11 @@
 	  		$userEmail = $_POST['emailText'];
 	  		$userPassword = $_POST['password'];
 	  		$userPasswordCon = $_POST['password2'];
+	  		$userSecurityPassword = $_POST['password3'];
 
 	  		if($userName!=null&&$userEmail!=null&&$userPassword!=null&&$userPasswordCon!=null){
 	  			if($userPassword == $userPasswordCon){
-					$InsertUserQuery = "INSERT INTO author (AuthorName,AuthorEmail,AuthorPassword) VALUES ('$userName','$userEmail','$userPassword')";
+					$InsertUserQuery = "INSERT INTO author (AuthorName,AuthorEmail,AuthorPassword,AuthorSecurityPassword) VALUES ('$userName','$userEmail','$userPassword','$userSecurityPassword')";
 					try{
 						$checkInsertUserName = $dbConn->prepare($InsertUserQuery);
 						$checkInsertUserName->execute();
@@ -79,20 +87,7 @@
 				print "<div class='error card-content'>Please enter your name, email address and password, thanks!</div>";
 			}
 	  	}
-     /*
-        DROP TABLE IF EXISTS AUTHOR;
-		CREATE TABLE IF NOT EXISTS AUTHOR(
-   		AuthorID   INTEGER  NOT NULL PRIMARY KEY AUTO_INCREMENT
-  		,AuthorName VARCHAR(20) NOT NULL
-  		,AuthorEmail VARCHAR(50) NOT NULL
-  		,AuthorPassword VARCHAR(20) NOT NULL
-		);
-		INSERT INTO AUTHOR(AuthorID,AuthorName,AuthorEmail,AuthorPassword) VALUES (200,'Alexis','alexis@gmail.com','alexis1234');
-	INSERT INTO AUTHOR(AuthorID,AuthorName,AuthorEmail,AuthorPassword) VALUES (201,'Judy Diercks Oreilly','judy@gmail.com','judy1234');
-	INSERT INTO AUTHOR(AuthorID,AuthorName,AuthorEmail,AuthorPassword) VALUES (202,'Soup Loving Nicole','soup@gmail.com','soup1234');
-	INSERT INTO AUTHOR(AuthorID,AuthorName,AuthorEmail,AuthorPassword) VALUES (203,'Andrea Cushman','andrea@gmail.com','andrea1234');
-	INSERT INTO AUTHOR(AuthorID,AuthorName,AuthorEmail,AuthorPassword) VALUES (204,'VBRAUER671','vbrauer671@gmail.com','vbrauer671');
-	INSERT INTO AUTHOR(AuthorID,AuthorName,AuthorEmail,AuthorPassword) VALUES (205,'Sean S.','sean@gmail.com','sean1234');*/
+
       ?>
     </form>
 		<script src="js/materialize.js"></script>

@@ -38,7 +38,7 @@
             </div>
             <div class="row">
               <a class="waves-effect waves-light btn red col s5 right" href="register.php">Create Account</a>
-              <a class="waves-effect waves-light btn red col s5 right" href="#">Forgot Password?</a>
+              <a class="waves-effect waves-light btn red col s5 right" href="forget.php">Forgot Password?</a>
             </div>
           </div>
           <?php

@@ -80,7 +80,7 @@
     <div class="card-content">
       <span class="card-title activator grey-text text-darken-4">'.$recipeTable[$i]['RecipeName'].'<i class="material-icons right">more_vert</i></span>
       <div class="card-action">
-      <p><a href="#">View Recipe</a></p>
+      <p><a href="displayRecipePage.php?id='.$recipeTable[$i]['RecipeID'].'">View Recipe</a></p>
       </div>
     </div>
     <div class="card-reveal">
