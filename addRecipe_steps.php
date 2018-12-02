@@ -34,8 +34,10 @@
 			}
 	</script>
 		<?php
+			require("recipemanagementdb_connect.php");
+		
 			if(isset($_POST['submit'])){
-				$recipeID = $_SESSION['recipeID'];
+				$recipeID = $_SESSION['RecipeID'];
 				$stepNumber = $_SESSION['stepNum'];
 				$stepDesc = $_POST['desc'];
 				
