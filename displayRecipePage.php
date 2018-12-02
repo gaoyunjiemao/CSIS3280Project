@@ -134,7 +134,7 @@
 		<tr><td><p align='center'>".$resultAuthor[0]['AuthorName']."</p></td></tr>";
 		for($i=0;$i<$countStep;$i++){
 			$j=$i+1;
-			print "<tr><th><p>Step : .$j.</p></th></tr>
+			print "<tr><th><p>Step : $j</p></th></tr>
 			<tr><td><p align='center'>".$resultStep[$i]['StepDesc']."</p></td></tr>";			
 		}
 		print "<tr><th><p>---Ingredient---</p></th></tr>";
