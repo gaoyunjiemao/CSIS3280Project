@@ -6,7 +6,7 @@
 	</head>
 	<body>
 		<?php
-		print "<p>Your Recipe has been saved successfull!</p><br />";
+		print "<p>Your Recipe has been saved successfully!</p><br />";
 		print "<a href='index.php'>Click Here to back to home page</a>";
 		?>
 	</body>
