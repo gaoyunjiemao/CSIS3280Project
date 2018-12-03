@@ -121,7 +121,11 @@
 						//increment step number
 						$_SESSION['stepNum']++;
 
-						header("Refresh:0");
+						?>
+						<script type="text/javascript">
+						window.location = "http://localhost/addRecipe_steps.php";
+						</script>
+						<?php
 					}
 				}else{
 					print "<p class='card-content red-text'>Please fill out all the blanks.</p>";
@@ -155,7 +159,11 @@
 								$insertIntoStep_Ing->execute();
 
 								unset($_SESSION['stepNum']);
-								header('Location: recipe_saved.php');
+								?>
+								<script type="text/javascript">
+								window.location = "http://localhost/recipe_saved.php";
+								</script>
+								<?php
 							}
 						}
 					}

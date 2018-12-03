@@ -53,7 +53,7 @@
 										<input type="file" name="fileToUpload" id="fileToUpload">
 									</div>
 									<div class="file-path-wrapper">
-										<input class="file-path validate" type="text">
+										<input name="uploadField" class="file-path validate" type="text">
 									</div>
 								</div>
 							</div>
@@ -66,8 +66,9 @@
 			$desc = $_POST['prepTime'];
 			$prepTime = $_POST['cookTime'];
 			$cookTime = $_POST['desc'];
+			$uploadField = $_POST['uploadField'];
 
-			if($recipeName!=null&&$desc!=null&&$prepTime!=null&&$cookTime!=null){
+			if($recipeName!=null&&$desc!=null&&$prepTime!=null&&$cookTime!=null&&$uploadField!=NULL){
 				if(isset($_SESSION['AuthorID'])){
 				$insertIntoRecipe = $dbConn->prepare("INSERT INTO RECIPE(RecipeName,RecipeDesc,AuthorID,PrepTime,CookTime) VALUES ('$recipeName','$desc','".$_SESSION['AuthorID']."','$prepTime','$cookTime')");
 
@@ -76,16 +77,16 @@
 				$getRecipeID = $dbConn->lastInsertId();
 				$_SESSION['RecipeID'] = $getRecipeID;
 
+
 				uploadImage();
+				
+				header('Location: addRecipe_steps.php');
 
 				}
 			}else
 				{
 					print "<div class='red-text card-content'>Please fill out all the blanks.</div>";
 				}
-		}else if(isset($_POST['next'])){
-
-			header('Location: addRecipe_steps.php');
 		}
 
 		function uploadImage(){
@@ -123,7 +124,6 @@
 				} else {
 				    if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $newFileName)) {
 				        print "<div class='green-text card-content'>The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.</div>";
-				        print "<form method='post'><button class='waves-effect waves-light btn blue col s4 right' type='submit' name='next'>Next</button></form>";
 				    } else {
 				        print "<div class='red-text card-content'>Sorry, there was an error uploading your file.";
 				    }
