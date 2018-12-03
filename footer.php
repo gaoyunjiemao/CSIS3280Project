@@ -5,7 +5,12 @@
 //             © 2018 Puneet Chris Fred
 //         </div>
 //       </div>';
-  echo '<footer class="white right">
-          &copy 2018 Puneet Fred Chris
-        </footer>';
+  echo '
+        <div class="card-panel">
+              <span >
+                &copy 2018 Puneet Fred Chris
+              </span>
+
+        </div>'
+        ;
 ?>
