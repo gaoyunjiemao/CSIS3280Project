@@ -117,90 +117,72 @@
 					}
 
 					echo '<div class="row">
-									<div class="card col s4">
-										<div class="card-image">
-										<img src="images/recipes/'.$recipeID.'.jpg" alt="Recipe Image"/>
+									<div class="col s3">
+										<div class="row">
+											<div class="card hoverable">
+												<div class="card-image">
+													<img src="images/recipes/'.$recipeID.'.jpg" alt="Recipe Image"/>
+												</div>
+												<div class="card-content">
+													<div class="card-title">'.$resultRecipe[0]['RecipeName'].'</div>
+													<p>'.$resultRecipe[0]['RecipeDesc'].'</p><br /><br />
+													<div class="center">
+														<div class="chip ">Preptime : '.$resultRecipe[0]['PrepTime'].'</div>
+														<div class="chip ">Cooktime : '.$resultRecipe[0]['CookTime'].'</div><br />
+														<div class="chip ">Author : '.$resultAuthor[0]['AuthorName'].'</div><br />
+													</div>
+												</div>
+											</div>
 										</div>
-										<div class="card-content">
-											<div class="card-title">'.$resultRecipe[0]['RecipeName'].'</div>
-											<p>'.$resultRecipe[0]['RecipeDesc'].'</p>
+										<div class="row">
+											<div class="card hoverable">
+
+											</div>
 										</div>
 									</div>
-									<div class="col s8">
-										<div class="card">
-											<div class="card-content">
-												<div class="chip">Preptime : '.$resultRecipe[0]['PrepTime'].'</div>
-												<div class="chip">Cooktime : '.$resultRecipe[0]['CookTime'].'</div>
-												<div class="chip right">Author : '.$resultAuthor[0]['AuthorName'].'</div>
+									<div class="col s9">
+
+										<div class="row">
+											<div class="col s8">
+												<div class="card hoverable">
+														<ol class="collection with-header">
+															<li class="collection-header center card-title">Directions</li>';
+														for($i=0;$i<$countStep;$i++){
+															$j=$i+1;
+															print "<li class='collection-item z-depth-3'>".$resultStep[$i]['StepDesc']."</li>";
+														}
+					echo							'</ol>
+													</div>
 											</div>
-											
+											<div class="col s4">
+												<div class="card hoverable">
+													<ol class="collection with-header">
+														<li class="collection-header center card-title">Ingredients</li>';
+
+														$countStep_ing = count($StepArray);
+														$countIng = count($IngArray);
+
+														for($i=0;$i<$countStep_ing;$i++){
+															$countStep_ingI = count($StepArray[$i]);
+															for($j=0;$j<$countStep_ingI;$j++){
+																$IngredientIDTmp=$StepArray[$i][$j]['IngredientID'];
+																if($IngredientIDTmp!=null){
+																	for($k=0;$k<$countIng;$k++){
+																		if($IngArray[$k]['IngredientID']==$IngredientIDTmp){
+																			print "<li class='collection-item z-depth-3'>".$IngArray[$k]['IngredientName']." ";
+																		}
+																	}
+																	print $StepArray[$i][$j]['IngredientAmt']." ".$StepArray[$i][$j]['AmtUnits']."</li>";
+																}
+															}
+														}
+					echo						'</ol>
+												</div>
 											</div>
 										</div>
 									</div>
 								</div>';
 				?>
 			</div>
-	</body>
-</html>
-
-	<?php
-
-
-	//print "<pre>";
-	//print_r($StepArray);
-	//print "</pre>";
-
-	//print "<pre>";
-	//print_r($IngArray);
-	//print "</pre>";
-
-//==============================================================================
-
-
-	print "<table border=1>
-		<tr><th><p>RECIPE NAME</p></th></tr>
-		<tr><td><p align='center'>".$resultRecipe[0]['RecipeName']."</p></td></tr>
-		<tr><th><p>RECIPE DESC</p></th></tr>
-		<tr><td><p align='center'>".$resultRecipe[0]['RecipeDesc']."</p></td></tr>
-		<tr><th><p>PREPARE TIME</p></th></tr>
-		<tr><td><p align='center'>".$resultRecipe[0]['PrepTime']."</p></td></tr>
-		<tr><th><p>COOK TIME</p></th></tr>
-		<tr><td><p align='center'>".$resultRecipe[0]['CookTime']."</p></td></tr>
-		<tr><th><p>AUTHER NAME</p></th></tr>
-		<tr><td><p align='center'>".$resultAuthor[0]['AuthorName']."</p></td></tr>";
-		for($i=0;$i<$countStep;$i++){
-			$j=$i+1;
-			print "<tr><th><p>Step : $j</p></th></tr>
-			<tr><td><p align='center'>".$resultStep[$i]['StepDesc']."</p></td></tr>";
-		}
-		print "<tr><th><p>---Ingredient---</p></th></tr>";
-		$countStep_ing = count($StepArray);
-		$countIng = count($IngArray);
-		for($i=0;$i<$countStep_ing;$i++){
-			$countStep_ingI = count($StepArray[$i]);
-			for($j=0;$j<$countStep_ingI;$j++){
-				$IngredientIDTmp=$StepArray[$i][$j]['IngredientID'];
-				if($IngredientIDTmp!=null){
-					print "<tr><th><p>Ingredient Name</p></th></tr>";
-					for($k=0;$k<$countIng;$k++){
-						if($IngArray[$k]['IngredientID']==$IngredientIDTmp){
-							print "<tr><td><p align='center'>".$IngArray[$k]['IngredientName']."</p></td></tr>";
-						}
-					}
-					print "<tr><th><p>Ingredient Amount</p></th></tr>
-					<tr><td><p align='center'>".$StepArray[$i][$j]['IngredientAmt']."</p></td></tr>
-					<tr><th><p>Amount units</p></th></tr>
-					<tr><td><p align='center'>".$StepArray[$i][$j]['AmtUnits']."</p></td></tr>";
-				}
-
-			}
-		}
-
-	print "</table>";
-
-	?>
-
-
-
 	</body>
 </html>
