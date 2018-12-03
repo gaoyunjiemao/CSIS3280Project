@@ -22,7 +22,7 @@
 								<img src="images/logo/fallrecipes.png" alt="Website Logo">
 							</center>
 						</div>
-						<div class=" ">
+						<div class="">
 							<div class="input-field">
 								<i class="material-icons prefix">account_circle</i>
 								<input id="usernameText" type="text" name="usernameText" class="validate" required>
