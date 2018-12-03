@@ -68,7 +68,7 @@
 			$cookTime = $_POST['desc'];
 			$uploadField = $_POST['uploadField'];
 
-			if($recipeName!=null&&$desc!=null&&$prepTime!=null&&$cookTime!=null&&$uploadField!=NULL){
+			if($recipeName!=null&&$desc!=null&&$prepTime!=null&&$cookTime!=null){
 				if(isset($_SESSION['AuthorID'])){
 				$insertIntoRecipe = $dbConn->prepare("INSERT INTO RECIPE(RecipeName,RecipeDesc,AuthorID,PrepTime,CookTime) VALUES ('$recipeName','$desc','".$_SESSION['AuthorID']."','$prepTime','$cookTime')");
 
@@ -77,8 +77,10 @@
 				$getRecipeID = $dbConn->lastInsertId();
 				$_SESSION['RecipeID'] = $getRecipeID;
 
-
-				uploadImage();
+				if($uploadField!=NULL){
+					uploadImage();
+				}
+				
 				
 				header('Location: addRecipe_steps.php');
 
