@@ -63,9 +63,9 @@
 			<?php
 			if(isset($_POST['submit'])){
 			$recipeName = $_POST['recipeName'];
-			$desc = $_POST['prepTime'];
+			$desc = $_POST['desc'];
 			$prepTime = $_POST['cookTime'];
-			$cookTime = $_POST['desc'];
+			$cookTime = $_POST['prepTime'];
 			$uploadField = $_POST['uploadField'];
 
 			if($recipeName!=null&&$desc!=null&&$prepTime!=null&&$cookTime!=null){
