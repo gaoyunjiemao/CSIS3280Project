@@ -120,8 +120,10 @@
 									<div class="col s3">
 										<div class="row">
 											<div class="card hoverable">
-												<div class="card-image">
-													<img src="images/recipes/'.$recipeID.'.jpg" alt="Recipe Image"/>
+												<div class="card-image waves-effect waves-block waves-light">
+				                  <object class="activator" data="images/recipes/'.$recipeID.'.jpg" type="image/jpg">
+														<img class="activator" src="images/recipes/000.jpg" alt="Recipe Image"/>
+													</object>
 												</div>
 												<div class="card-content">
 													<div class="card-title ">'.$resultRecipe[0]['RecipeName'].'</div>

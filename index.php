@@ -70,7 +70,9 @@
     print '<div class="main col s4">
             <div class="card medium hoverable">
               <div class="card-image waves-effect waves-block waves-light">
-                <img class="activator" src="images/recipes/'.$recipeTable[$i]['RecipeID'].'.jpg">
+                <object class="activator" data="images/recipes/'.$recipeTable[$i]['RecipeID'].'.jpg" type="image/jpg">
+                  <img class="activator card-image" src="images/recipes/000.jpg">
+                </object>
               </div>
               <div class="card-content">
                 <span class="card-title activator grey-text text-darken-4">'.$recipeTable[$i]['RecipeName'].'<i class="material-icons right">more_vert</i></span>
