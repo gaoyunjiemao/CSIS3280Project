@@ -11,6 +11,7 @@ if(!isset($_SESSION['stepNum'])){
 	<head>
 		<meta charset="utf-8">
 		<title></title>
+		<script language="javascript">var i=2;</script>
 	</head>
 	<body>
 	<form action="addRecipe_steps.php" method="post" id="usrform">
@@ -20,7 +21,7 @@ if(!isset($_SESSION['stepNum'])){
 		Ingredient: <input type="text" name="ingredient1" />
 		Ingredient Amount: <input type="text" name="ingredientAmt1" />
 		Amount Units: <input type="text" name="amtUnits1" /><br />
-		Ingredient: <input type="text" name="ingredient2" />
+		<!--Ingredient: <input type="text" name="ingredient2" />
 		Ingredient Amount: <input type="text" name="ingredientAmt2" />
 		Amount Units: <input type="text" name="amtUnits2" /><br />
 		Ingredient: <input type="text" name="ingredient3" />
@@ -31,7 +32,7 @@ if(!isset($_SESSION['stepNum'])){
 		Amount Units: <input type="text" name="amtUnits4" /><br />
 		Ingredient: <input type="text" name="ingredient5" />
 		Ingredient Amount: <input type="text" name="ingredientAmt5" />
-		Amount Units: <input type="text" name="amtUnits5" /><br />
+		Amount Units: <input type="text" name="amtUnits5" /><br />-->
 		<div id="my_div"></div><br />
 		<input type="button" name="addIngredient" value="Add Ingredient" onClick="changeIt()"><br /><br />
 		<input type="submit" name="add" value="Add step">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
@@ -39,13 +40,14 @@ if(!isset($_SESSION['stepNum'])){
 	</form>
 	
 	<script language="javascript">
-			var i = 2;
+			//var i = 2;
 			function changeIt()
 			{
 				if(i<6){
-					my_div.innerHTML = my_div.innerHTML +"Ingredient: <input type='text' name='ingredient'+ i>";
-					my_div.innerHTML = my_div.innerHTML +" Ingredient Amount: <input type='text' name='ingredientAmt'+ i>";
-					my_div.innerHTML = my_div.innerHTML +" Amount Units: <input type='text' name='amtUnits'+ i><br />";
+					my_div.innerHTML = my_div.innerHTML +"Ingredient: <input type='text' name='ingredient"+ i +"'>";
+					my_div.innerHTML = my_div.innerHTML +" Ingredient Amount: <input type='text' name='ingredientAmt"+ i + "'>";
+					my_div.innerHTML = my_div.innerHTML +" Amount Units: <input type='text' name='amtUnits"+ i+"'><br />";
+					//document.getElementById("demo").innerHTML = 'amtUnits'+ i;
 					i++;
 				}
 			}
@@ -97,5 +99,6 @@ if(!isset($_SESSION['stepNum'])){
 				//print "Your Recipe was successfully added.";
 			}
 		?>
+		<p id="demo"></p>
 	</body>
 </html>
