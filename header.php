@@ -1,5 +1,6 @@
 
 <?php
+  session_start();
   echo '<nav class="white card">
           <div class="nav-wrapper">
             <a href="index.php" class="brand-logo">
