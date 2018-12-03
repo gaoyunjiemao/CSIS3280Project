@@ -94,9 +94,41 @@ if(!isset($_SESSION['stepNum'])){
 					print "<p>Please fill out all the blanks.</p>";
 				}
 			}else if(isset($_POST['finish'])){
-				unset($_SESSION['stepNum']);
-				header("Refresh:0");
-				//print "Your Recipe was successfully added.";
+				$recipeID = $_SESSION['RecipeID'];
+				$stepDesc = $_POST['desc'];
+				
+				
+				if($recipeID!=NULL&&$stepNumber!=NULL&&$stepDesc!=NULL){
+					if(isset($_SESSION['AuthorID'])){
+						$insertIntoSteps = $dbConn->prepare("INSERT INTO STEP(RecipeID,StepNumber,StepDesc) VALUES ('$recipeID','$stepNumber','$stepDesc')");
+						
+						$insertIntoSteps->execute();
+						
+						$getStepID = $dbConn->lastInsertId();
+						
+						for($i=1;$i<6;$i++){
+							if(isset($_POST['ingredient'.$i.''])||isset($_POST['ingredientAmt'.$i.''])||isset($_POST['amtUnits'.$i.''])){
+								$ingredient = $_POST['ingredient'.$i.''];
+								$ingredientAmt = $_POST['ingredientAmt'.$i.''];
+								$amtUnits = $_POST['amtUnits'.$i.''];
+								
+								$insertIntoIngredients = $dbConn->prepare("INSERT INTO INGREDIENT(IngredientName) VALUES ('$ingredient')");
+								$insertIntoIngredients->execute();
+						
+								$getIngredientID = $dbConn->lastInsertId();
+								
+								$insertIntoStep_Ing = $dbConn->prepare("INSERT INTO STEP_INGREDIENT(StepID,IngredientID,IngredientAmt,AmtUnits) VALUES ('$getStepID', '$getIngredientID', '$ingredientAmt', '$amtUnits')");
+								
+								$insertIntoStep_Ing->execute();
+								
+								unset($_SESSION['stepNum']);
+								header('Location: recipe_saved.php');
+							}
+						}
+					}
+				}else{
+					print "<p>Please fill out all the blanks.</p>";
+				}
 			}
 		?>
 		<p id="demo"></p>
