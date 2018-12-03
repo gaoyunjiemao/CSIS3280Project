@@ -173,5 +173,6 @@
 			}
 		?>
 		<p id="demo"></p>
+		<script src="js/materialize.js"></script>
 	</body>
 </html>
