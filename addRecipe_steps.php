@@ -21,18 +21,6 @@ if(!isset($_SESSION['stepNum'])){
 		Ingredient: <input type="text" name="ingredient1" />
 		Ingredient Amount: <input type="text" name="ingredientAmt1" />
 		Amount Units: <input type="text" name="amtUnits1" /><br />
-		<!--Ingredient: <input type="text" name="ingredient2" />
-		Ingredient Amount: <input type="text" name="ingredientAmt2" />
-		Amount Units: <input type="text" name="amtUnits2" /><br />
-		Ingredient: <input type="text" name="ingredient3" />
-		Ingredient Amount: <input type="text" name="ingredientAmt3" />
-		Amount Units: <input type="text" name="amtUnits3" /><br />
-		Ingredient: <input type="text" name="ingredient4" />
-		Ingredient Amount: <input type="text" name="ingredientAmt4" />
-		Amount Units: <input type="text" name="amtUnits4" /><br />
-		Ingredient: <input type="text" name="ingredient5" />
-		Ingredient Amount: <input type="text" name="ingredientAmt5" />
-		Amount Units: <input type="text" name="amtUnits5" /><br />-->
 		<div id="my_div"></div><br />
 		<input type="button" name="addIngredient" value="Add Ingredient" onClick="changeIt()"><br /><br />
 		<input type="submit" name="add" value="Add step">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
