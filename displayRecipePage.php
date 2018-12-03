@@ -183,6 +183,8 @@
 									</div>
 								</div>';
 				?>
+				<?php include "footer.php"; ?>
 			</div>
+			<script src="js/materialize.js"></script>
 	</body>
 </html>

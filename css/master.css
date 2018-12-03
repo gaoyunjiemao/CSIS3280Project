@@ -14,3 +14,7 @@ html{
 .footer{
 	position: sticky;
 }
+
+.error{
+	color: red;
+}
