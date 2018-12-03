@@ -17,13 +17,21 @@ if(!isset($_SESSION['stepNum'])){
 		Step No. <?php $stepNumber = $_SESSION['stepNum']; print $stepNumber;?><br />
 		Step Description:<br />
 		<textarea rows="5" cols="50" name="desc" form="usrform"></textarea><br /><br />
-		Ingredient: 
-		<input type="text" name="ingredient1" />
-		Ingredient Amount: 
-		<input type="text" name="ingredientAmt1" />
-		Amount Units: 
-		<input type="text" name="amtUnits1" />
-		<br />
+		Ingredient: <input type="text" name="ingredient1" />
+		Ingredient Amount: <input type="text" name="ingredientAmt1" />
+		Amount Units: <input type="text" name="amtUnits1" /><br />
+		Ingredient: <input type="text" name="ingredient2" />
+		Ingredient Amount: <input type="text" name="ingredientAmt2" />
+		Amount Units: <input type="text" name="amtUnits2" /><br />
+		Ingredient: <input type="text" name="ingredient3" />
+		Ingredient Amount: <input type="text" name="ingredientAmt3" />
+		Amount Units: <input type="text" name="amtUnits3" /><br />
+		Ingredient: <input type="text" name="ingredient4" />
+		Ingredient Amount: <input type="text" name="ingredientAmt4" />
+		Amount Units: <input type="text" name="amtUnits4" /><br />
+		Ingredient: <input type="text" name="ingredient5" />
+		Ingredient Amount: <input type="text" name="ingredientAmt5" />
+		Amount Units: <input type="text" name="amtUnits5" /><br />
 		<div id="my_div"></div><br />
 		<input type="button" name="addIngredient" value="Add Ingredient" onClick="changeIt()"><br /><br />
 		<input type="submit" name="add" value="Add step">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
@@ -34,10 +42,12 @@ if(!isset($_SESSION['stepNum'])){
 			var i = 2;
 			function changeIt()
 			{
-				my_div.innerHTML = my_div.innerHTML +"Ingredient: <input type='text' name='ingredient'+ i>";
-				my_div.innerHTML = my_div.innerHTML +" Ingredient Amount: <input type='text' name='ingredientAmt'+ i>";
-				my_div.innerHTML = my_div.innerHTML +" Amount Units: <input type='text' name='amtUnits'+ i><br />";
-				i++;
+				if(i<6){
+					my_div.innerHTML = my_div.innerHTML +"Ingredient: <input type='text' name='ingredient'+ i>";
+					my_div.innerHTML = my_div.innerHTML +" Ingredient Amount: <input type='text' name='ingredientAmt'+ i>";
+					my_div.innerHTML = my_div.innerHTML +" Amount Units: <input type='text' name='amtUnits'+ i><br />";
+					i++;
+				}
 			}
 	</script>
 		<?php
@@ -46,9 +56,7 @@ if(!isset($_SESSION['stepNum'])){
 			if(isset($_POST['add'])){
 				$recipeID = $_SESSION['RecipeID'];
 				$stepDesc = $_POST['desc'];
-				$ingredient = $_POST['ingredient1'];
-				$ingredientAmt = $_POST['ingredientAmt1'];
-				$amtUnits = $_POST['amtUnits1'];
+				
 				
 				if($recipeID!=NULL&&$stepNumber!=NULL&&$stepDesc!=NULL){
 					if(isset($_SESSION['AuthorID'])){
@@ -58,16 +66,22 @@ if(!isset($_SESSION['stepNum'])){
 						
 						$getStepID = $dbConn->lastInsertId();
 						
-						$insertIntoIngredients = $dbConn->prepare("INSERT INTO INGREDIENT(IngredientName) VALUES ('$ingredeint')");
-
-						$insertIntoIngredients->execute();
+						for($i=1;$i<6;$i++){
+							if(isset($_POST['ingredient'.$i.''])||isset($_POST['ingredientAmt'.$i.''])||isset($_POST['amtUnits'.$i.''])){
+								$ingredient = $_POST['ingredient'.$i.''];
+								$ingredientAmt = $_POST['ingredientAmt'.$i.''];
+								$amtUnits = $_POST['amtUnits'.$i.''];
+								
+								$insertIntoIngredients = $dbConn->prepare("INSERT INTO INGREDIENT(IngredientName) VALUES ('$ingredient')");
+								$insertIntoIngredients->execute();
 						
-						$getIngredientID = $dbConn->lastInsertId();
-						
-						$insertIntoStep_Ing = $dbConn->prepare("INSERT INTO STEP_INGREDIENT(StepID,IngredientID,IngredientAmt,AmtUnits) VALUES ('$getStepID', '$getIngredientID', '$ingredientAmt', '$amtUnits')");
-						
-						
-						$insertIntoStep_Ing->execute();
+								$getIngredientID = $dbConn->lastInsertId();
+								
+								$insertIntoStep_Ing = $dbConn->prepare("INSERT INTO STEP_INGREDIENT(StepID,IngredientID,IngredientAmt,AmtUnits) VALUES ('$getStepID', '$getIngredientID', '$ingredientAmt', '$amtUnits')");
+								
+								$insertIntoStep_Ing->execute();
+							}
+						}
 						
 						//increment step number
 						$_SESSION['stepNum']++;
@@ -80,7 +94,7 @@ if(!isset($_SESSION['stepNum'])){
 			}else if(isset($_POST['finish'])){
 				unset($_SESSION['stepNum']);
 				header("Refresh:0");
-				print "Your Recipe was successfully added.";
+				//print "Your Recipe was successfully added.";
 			}
 		?>
 	</body>
