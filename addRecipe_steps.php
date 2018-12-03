@@ -102,7 +102,7 @@
 						$getStepID = $dbConn->lastInsertId();
 
 						for($i=1;$i<6;$i++){
-							if(isset($_POST['ingredient'.$i.''])||isset($_POST['ingredientAmt'.$i.''])||isset($_POST['amtUnits'.$i.''])){
+							if(isset($_POST['ingredient'.$i.''])&&$_POST['ingredient'.$i.'']!=NULL||isset($_POST['ingredientAmt'.$i.''])&&$_POST['ingredientAmt'.$i.'']!=NULL||isset($_POST['amtUnits'.$i.''])&&$_POST['amtUnits'.$i.'']!=NULL){
 								$ingredient = $_POST['ingredient'.$i.''];
 								$ingredientAmt = $_POST['ingredientAmt'.$i.''];
 								$amtUnits = $_POST['amtUnits'.$i.''];
@@ -144,7 +144,7 @@
 						$getStepID = $dbConn->lastInsertId();
 
 						for($i=1;$i<6;$i++){
-							if(isset($_POST['ingredient'.$i.''])||isset($_POST['ingredientAmt'.$i.''])||isset($_POST['amtUnits'.$i.''])){
+							if(isset($_POST['ingredient'.$i.''])&&$_POST['ingredient'.$i.'']!=NULL||isset($_POST['ingredientAmt'.$i.''])&&$_POST['ingredientAmt'.$i.'']!=NULL||isset($_POST['amtUnits'.$i.''])&&$_POST['amtUnits'.$i.'']!=NULL){
 								$ingredient = $_POST['ingredient'.$i.''];
 								$ingredientAmt = $_POST['ingredientAmt'.$i.''];
 								$amtUnits = $_POST['amtUnits'.$i.''];
@@ -158,18 +158,19 @@
 
 								$insertIntoStep_Ing->execute();
 
-								unset($_SESSION['stepNum']);
-								?>
-								<script type="text/javascript">
-								window.location = "http://localhost/recipe_saved.php";
-								</script>
-								<?php
 							}
 						}
 					}
 				}else{
 					print "<p class='red-text'>Please fill out all the blanks.</p>";
 				}
+				
+				unset($_SESSION['stepNum']);
+								?>
+								<script type="text/javascript">
+								window.location = "http://localhost/recipe_saved.php";
+								</script>
+								<?php
 			}
 		?>
 		<p id="demo"></p>
