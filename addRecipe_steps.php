@@ -124,7 +124,7 @@
 						header("Refresh:0");
 					}
 				}else{
-					print "<p>Please fill out all the blanks.</p>";
+					print "<p class='card-content red-text'>Please fill out all the blanks.</p>";
 				}
 			}else if(isset($_POST['finish'])){
 				$recipeID = $_SESSION['RecipeID'];

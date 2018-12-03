@@ -119,29 +119,23 @@
 					echo '<div class="row">
 									<div class="col s3">
 										<div class="row">
-											<div class="card teal hoverable">
+											<div class="card hoverable">
 												<div class="card-image">
 													<img src="images/recipes/'.$recipeID.'.jpg" alt="Recipe Image"/>
 												</div>
-												<div class="card-content white-text">
-													<div class="card-title white-text">'.$resultRecipe[0]['RecipeName'].'</div>
+												<div class="card-content">
+													<div class="card-title ">'.$resultRecipe[0]['RecipeName'].'</div>
 													<p>'.$resultRecipe[0]['RecipeDesc'].'</p><br /><br />
 													<div class="center">
-														<div class="chip white">Preptime : '.$resultRecipe[0]['PrepTime'].'</div>
-														<div class="chip white">Cooktime : '.$resultRecipe[0]['CookTime'].'</div><br />
-														<div class="chip white">Author : '.$resultAuthor[0]['AuthorName'].'</div><br />
+														<div class="chip red white-text ">Preptime : '.$resultRecipe[0]['PrepTime'].'</div>
+														<div class="chip blue white-text">Cooktime : '.$resultRecipe[0]['CookTime'].'</div><br />
+														<div class="chip teal white-text">Author : '.$resultAuthor[0]['AuthorName'].'</div><br />
 													</div>
 												</div>
 											</div>
 										</div>
-										<div class="row">
-											<div class="card hoverable">
-
-											</div>
-										</div>
 									</div>
 									<div class="col s9">
-
 										<div class="row">
 											<div class="col s8">
 												<div class="card hoverable">
@@ -157,7 +151,7 @@
 											<div class="col s4">
 												<div class="card hoverable">
 													<ol class="collection with-header">
-														<li class="collection-header teal white-text center card-title">Ingredients</li>';
+														<li class="collection-header center card-title">Ingredients</li>';
 
 														$countStep_ing = count($StepArray);
 														$countIng = count($IngArray);
@@ -169,7 +163,7 @@
 																if($IngredientIDTmp!=null){
 																	for($k=0;$k<$countIng;$k++){
 																		if($IngArray[$k]['IngredientID']==$IngredientIDTmp){
-																			print "<li class='collection-item teal white-text z-depth-3'>".$IngArray[$k]['IngredientName']." ";
+																			print "<li class='collection-item z-depth-3'>".$IngArray[$k]['IngredientName']." ";
 																		}
 																	}
 																	print $StepArray[$i][$j]['IngredientAmt']." ".$StepArray[$i][$j]['AmtUnits']."</li>";

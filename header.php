@@ -10,6 +10,7 @@
 
   if(isset($_SESSION['AuthorName'])){
     echo '    <li class="black-text nav-text">'.$_SESSION['AuthorName'].'</li>
+              <li class="blue"><a href="addRecipe_name.php">Add Recipe</a></li>
               <li class="red"><a href="logout.php">Logout</a></li>
             </ul>
           </div>
