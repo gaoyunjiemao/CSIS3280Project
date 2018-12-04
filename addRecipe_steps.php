@@ -8,6 +8,7 @@
 		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 		<link rel="stylesheet" href="css/materialize.css">
 		<link rel="stylesheet" href="css/master.css" />
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script language="javascript">var i=2;</script>
 	</head>
 	<body>
@@ -55,12 +56,35 @@
 								<p class="col s1 right"></p>
 								<button class="waves-effect waves-light btn blue col s3 right" type="submit" name="add" value="Submit"/>Add step</button>
 								<p class="col s1 right"></p>
-								<button class="waves-effect waves-light btn blue col s3 right" type="button" name="addIngredient" onClick="changeIt()"/>Add Ingredient</button>
+								<button class="waves-effect waves-light btn blue col s3 right" type="button" name="addIngredient" id="add"/>Add Ingredient</button>
 							</div>
 
-	<script language="javascript">
+	<script>
+	
+	$(document).ready(function(){
+				$('#add').click(function(){
+					if(i<6){
+					$('#my_div').append('<div class="row">'
+					 																		+ 	'<div class="input-field col s4">'
+																							+ 		'<input id="ingredient'+i+'" name="ingredient'+i+'" type="text" class="validate">'
+																							+ 		'<label for="ingredient'+i+'">Ingredient</label>'
+																							+ 	'</div>'
+																							+ 	'<div class="input-field col s4">'
+																							+ 		'<input id="ingredientAmt'+i+'" name="ingredientAmt'+i+'" type="text" class="validate">'
+																							+ 		'<label for="ingredientAmt'+i+'">Ingredient Amount</label>'
+																							+ 	'</div>'
+																							+ 	'<div class="input-field col s4">'
+																							+ 		'<input id="amtUnits'+i+'" name="amtUnits'+i+'" type="text" class="validate">'
+																							+ 		'<label for="amtUnits'+i+'">Amount Units</label>'
+																							+ 	'</div>'
+																							+ '</div>');
+																							
+			i++;
+				}
+		});
+	});
 			//var i = 2;
-			function changeIt()
+			/*function changeIt()
 			{
 				if(i<6){
 					my_div.innerHTML = my_div.innerHTML + '<div class="row">'
@@ -83,7 +107,7 @@
 					//document.getElementById("demo").innerHTML = 'amtUnits'+ i;
 					i++;
 				}
-			}
+			}*/
 	</script>
 		<?php
 			require("recipemanagementdb_connect.php");
@@ -123,7 +147,7 @@
 
 						?>
 						<script type="text/javascript">
-						window.location = "http://localhost/addRecipe_steps.php";
+						window.location = "http://localhost/CSIS3280Project-master/addRecipe_steps.php";
 						</script>
 						<?php
 					}
@@ -168,7 +192,7 @@
 				unset($_SESSION['stepNum']);
 								?>
 								<script type="text/javascript">
-								window.location = "http://localhost/recipe_saved.php";
+								window.location = "http://localhost/CSIS3280Project-master/recipe_saved.php";
 								</script>
 								<?php
 			}
