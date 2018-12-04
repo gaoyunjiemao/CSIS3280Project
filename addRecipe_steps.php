@@ -164,7 +164,7 @@
 				}else{
 					print "<p class='red-text'>Please fill out all the blanks.</p>";
 				}
-				
+
 				unset($_SESSION['stepNum']);
 								?>
 								<script type="text/javascript">
@@ -174,6 +174,7 @@
 			}
 		?>
 		<p id="demo"></p>
+		<?php include "footer.php"; ?>
 		<script src="js/materialize.js"></script>
 	</body>
 </html>

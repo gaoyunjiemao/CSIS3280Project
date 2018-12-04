@@ -131,7 +131,7 @@
 													<div class="center">
 														<div class="chip red white-text ">Preptime : '.$resultRecipe[0]['PrepTime'].'</div>
 														<div class="chip blue white-text">Cooktime : '.$resultRecipe[0]['CookTime'].'</div><br />
-														<div class="chip teal white-text">Author : '.$resultAuthor[0]['AuthorName'].'</div><br />
+														<div class="chip pink white-text">Author : '.$resultAuthor[0]['AuthorName'].'</div><br />
 													</div>
 												</div>
 											</div>
