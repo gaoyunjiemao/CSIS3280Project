@@ -60,7 +60,7 @@
 							</div>
 
 	<script>
-	
+
 	$(document).ready(function(){
 				$('#add').click(function(){
 					if(i<6){
@@ -78,7 +78,7 @@
 																							+ 		'<label for="amtUnits'+i+'">Amount Units</label>'
 																							+ 	'</div>'
 																							+ '</div>');
-																							
+
 			i++;
 				}
 		});
@@ -147,7 +147,7 @@
 
 						?>
 						<script type="text/javascript">
-						window.location = "http://localhost/CSIS3280Project-master/addRecipe_steps.php";
+						window.location = "addRecipe_steps.php";
 						</script>
 						<?php
 					}
@@ -192,7 +192,7 @@
 				unset($_SESSION['stepNum']);
 								?>
 								<script type="text/javascript">
-								window.location = "http://localhost/CSIS3280Project-master/recipe_saved.php";
+								window.location = "recipe_saved.php";
 								</script>
 								<?php
 			}
