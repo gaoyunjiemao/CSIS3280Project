@@ -74,19 +74,21 @@
                   <img class="activator card-image" src="images/recipes/000.jpg">
                 </object>
               </div>
-              <div class="card-content">
+              <div class="card-content center">
                 <span class="card-title activator grey-text text-darken-4">'.$recipeTable[$i]['RecipeName'].'<i class="material-icons right">more_vert</i></span>
                 <div class="card-action">
-                <p><a href="displayRecipePage.php?id='.$recipeTable[$i]['RecipeID'].'">View Recipe</a></p>
+                <p><a class="btn red white-text" href="displayRecipePage.php?id='.$recipeTable[$i]['RecipeID'].'">View Recipe</a></p>
                 </div>
               </div>
               <div class="card-reveal">
                 <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span>
                 <span class="card-title grey-text text-darken-4 card-content">'.$recipeTable[$i]['RecipeName'].'</span>
                 <p class="card-content">'.$recipeTable[$i]['RecipeDesc'].'</p>
-                <div class="chip"><i class="close material-icons">access_time</i>'.$recipeTable[$i]['PrepTime'].'</div>
-                <div class="chip"><i class="close material-icons">access_alarms</i>'.$recipeTable[$i]['CookTime'].'</div><br />
-                <div class="chip">'.$recipeAuthor['0']['AuthorName'].'</div>
+                <center>
+                  <div class="chip blue white-text">Preptime :'.$recipeTable[$i]['PrepTime'].'</div>
+                  <div class="chip red white-text">Cooktime : '.$recipeTable[$i]['CookTime'].'</div><br />
+                  <div class="chip pink white-text">Author : '.$recipeAuthor['0']['AuthorName'].'</div>
+                </center>
               </div>
             </div>
           </div>';

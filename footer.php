@@ -1,16 +1,31 @@
-<?php
+<!-- <div class="row">
+  <div class="col s12">
 
-// echo '<div class="row">
-//         <div class="card">
-//             © 2018 Puneet Chris Fred
-//         </div>
-//       </div>';
-  echo '
-        <div class="card-panel">
-              <span >
-                &copy 2018 Puneet Fred Chris
-              </span>
+  <div class="card">
+    <div class="col s4">
 
-        </div>'
-        ;
-?>
+    </div>
+    <div class="col s4">
+
+    </div>
+    <div class="col s4">
+      <div class="card-content">
+        &copy 2018 <br />
+          Puneet Pareenja <br />
+          Hsueh-Cheng Liu <br />
+          Yunjie Gao
+      </div>
+    </div>
+  </div>
+</div>
+</div> -->
+  <div class="card white ">
+    <div class="card-content ">
+      <div class="center">
+        &copy 2018 <br />
+          Puneet Pareenja <br />
+          Hsueh-Cheng Liu <br />
+          Yunjie Gao
+      </div>
+    </div>
+  </div>
