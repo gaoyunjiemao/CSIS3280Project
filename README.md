@@ -46,7 +46,7 @@ You need to install WAMP SERVER(free!), fork the project and download the zip fi
 
 * View the cook time by a simple click
 
-![ScreenShot](/screenshots/check-cook-time.png)
+![ScreenShot](/screenshots/check-time.png)
 
 ## Authors
 * Puneet Pareenja
