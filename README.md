@@ -34,6 +34,20 @@ You need to install WAMP SERVER(free!), fork the project and download the zip fi
 
 ![ScreenShot](/screenshots/addrecipe-steps-example.png)
 
+* The recipe you added will show up on the home page!
+
+![ScreenShot](/screenshots/recipe-add-to-homepage.png)
+
+* Check it out!
+
+![ScreenShot](/screenshots/added-recipe.png)
+
+![ScreenShot](/screenshots/added-recipe-with-author.png)
+
+* View the cook time by a simple click
+
+![ScreenShot](/screenshots/check-cook-time.png)
+
 ## Authors
 * Puneet Pareenja
 * Hsueh-Cheng Liu
