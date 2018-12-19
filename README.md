@@ -6,7 +6,7 @@ These instructions will get you a copy of the project up and running on your loc
 ### Prerequisites
 You need to install WAMP SERVER(free!), fork the project and download the zip file, upzip and save everything inside the folder under WampServer/www, change the name of index.php inside folder www to index1.php, open your browser, type http://localhost/index.php in the address bar to open it.
 ## Instructions
-![alt text](https://github.com/puneetpareenja/CSIS3280Project/screenshots "homepage.png")
+![alt text](https://raw.githubusercontent.com/puneetpareenja/CSIS3280Project/screenshots "homepage.png")
 ## Authors
 * Puneet Pareenja
 * Hsueh-Cheng Liu
