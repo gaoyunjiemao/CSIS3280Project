@@ -10,6 +10,8 @@ You need to install WAMP SERVER(free!), fork the project and download the zip fi
 
 ![ScreenShot](/screenshots/homepage.png)
 
+* click
+
 * You can log into your account by click the bule button, or create your account
 
 ![ScreenShot](/screenshots/loginpage.png)
