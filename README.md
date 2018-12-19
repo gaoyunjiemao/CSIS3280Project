@@ -10,7 +10,9 @@ You need to install WAMP SERVER(free!), fork the project and download the zip fi
 
 ![ScreenShot](/screenshots/homepage.png)
 
-* click
+* Click on the recipe to view the details
+
+![ScreenShot](/screenshots/recipe.png)
 
 * You can log into your account by click the bule button, or create your account
 
@@ -19,6 +21,18 @@ You need to install WAMP SERVER(free!), fork the project and download the zip fi
 * After log in, your name will show up on the top right side
 
 ![ScreenShot](/screenshots/homepage-with-login-name.png)
+
+* Add a recipe
+
+![ScreenShot](/screenshots/addrecipe.png)
+
+![ScreenShot](/screenshots/addrecipe-example.png)
+
+* Add steps
+
+![ScreenShot](/screenshots/addrecipe-steps.png)
+
+![ScreenShot](/screenshots/addrecipe-steps-example.png)
 
 ## Authors
 * Puneet Pareenja
